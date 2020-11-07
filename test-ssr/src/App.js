@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Home from './Home';
 import About from './About';
+import styled from 'styled-components';
+
+const Container = styled.div`
+	background-color: #aaaaaa;
+	border: 1px solid blue;
+`;
 
 export default function App(props) {
 	const [page, setPage] = useState(props.page);
@@ -16,7 +22,7 @@ export default function App(props) {
 	}
 	const PageComponent = page === 'home' ? Home : About;
 	return (
-		<div className="container">
+		<Container>
 			<button data-page="home" onClick={onChangePage}>
 				Home
 			</button>
@@ -24,6 +30,6 @@ export default function App(props) {
 				About
 			</button>
 			<PageComponent />
-		</div>
+		</Container>
 	);
 }
